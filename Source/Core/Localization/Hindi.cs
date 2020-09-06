@@ -3,21 +3,21 @@ using System.Linq;
 
 namespace Core.Localization
 {
-    public sealed class English : ILanguage
+    public sealed class Hindi : ILanguage
     {
         public Country[] Countries
         {
             get
             {
                 CultureInfo[] culture2 = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
-                return culture2.Where(p => p.TwoLetterISOLanguageName == "en")
+                return culture2.Where(p => p.TwoLetterISOLanguageName == "hi")
                         .Select(p => new Country(p))
                         .ToArray();
             }
         }
 
-        public string Name => "English";
+        public string Name => "Hindi";
 
-        public string ISOTwoLetterCode => "en";
+        public string ISOTwoLetterCode => "hi";
     }
 }

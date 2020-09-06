@@ -10,12 +10,14 @@ namespace Core.Transaction
         public string Title { get; }
         public int Amount { get; }
         public DateTime Date { get; }
+        public ICategory Category { get; }
 
-        public Transaction(int id, string title, int amount, DateTime date)
+        public Transaction(int id, string title, int amount, ICategory category, DateTime date)
         {
             Id = id;
             Title = title;
             Amount = amount;
+            Category = category;
             Date = date;
         }
 
