@@ -8,7 +8,7 @@ namespace Core.Transaction
     {
         public int Id { get; }
         public string Title { get; }
-        public int Amount { get; }
+        public double Amount { get; }
         public DateTime Date { get; }
         public ICategory Category { get; }
 
