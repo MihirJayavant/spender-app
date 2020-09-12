@@ -29,7 +29,7 @@ namespace Core.Transaction
             };
 
         public override int GetHashCode()
-            => Id ^ Title.GetHashCode() ^ Amount ^ Date.GetHashCode();
+            => Id ^ Title.GetHashCode() ^ Amount.GetHashCode() ^ Date.GetHashCode();
 
         public static bool operator ==(Transaction t1, Transaction t2)
             => (t1.Id, t1.Title, t1.Amount, t1.Date) == (t2.Id, t2.Title, t2.Amount, t2.Date);

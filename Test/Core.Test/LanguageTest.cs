@@ -9,7 +9,7 @@ namespace Core.Test
         [Fact]
         public void GetOnlyTwoLanguages()
         {
-            var data = Languages.GetLanguages();
+            var data = Languages.All;
 
             data.Length.Should().Be(2);
         }
