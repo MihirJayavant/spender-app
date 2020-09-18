@@ -3,7 +3,8 @@ namespace Core.Transaction
 {
     public enum CategoryType
     {
-        Music
+        Entertainment = 1, Food = 2, Travel = 3,
+        shopping = 4, Salary = 5, Other = 6
     }
     public interface ICategory
     {
