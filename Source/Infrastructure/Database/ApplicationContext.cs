@@ -1,16 +1,18 @@
 ﻿using Infrastructure.Database.Configurations;
 using Infrastructure.Database.Entities;
+using Infrastructure.Essentials;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Database
 {
     public class ApplicationContext : DbContext
     {
-        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
-        {
+        readonly IDbOption option;
 
-        }
+        public ApplicationContext(IDbOption option) : base()
+            => this.option = option;
 
         public async Task EnsureCreated()
         {
@@ -27,12 +29,12 @@ namespace Infrastructure.Database
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    string dbPath = Path.Combine(FileSystem.AppDataDirectory, "transaction.db3");
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+           string dbPath = Path.Combine(option.AppDataDirectory, option.DatabaseName);
 
-        //    optionsBuilder
-        //        .UseSqlite($"Filename={dbPath}");
-        //}
+           optionsBuilder
+               .UseSqlite($"Filename={dbPath}");
+        }
     }
 }
