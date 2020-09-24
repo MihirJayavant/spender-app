@@ -1,4 +1,4 @@
-﻿using Core.AsyncData;
+﻿using Core.Data;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Requests

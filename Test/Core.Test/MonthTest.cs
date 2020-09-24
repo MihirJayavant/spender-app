@@ -1,4 +1,4 @@
-﻿using Core.Transaction;
+﻿using Core.Transactional;
 using FluentAssertions;
 using System;
 using Xunit;

@@ -1,5 +1,5 @@
 ﻿
-namespace Core.AsyncData
+namespace Core.Data
 {
 
     public class AsyncData<T> where T : class

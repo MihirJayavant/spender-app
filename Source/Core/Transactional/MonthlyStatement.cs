@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Transaction
+namespace Core.Transactional
 {
     public sealed class MonthlyStatement
     {

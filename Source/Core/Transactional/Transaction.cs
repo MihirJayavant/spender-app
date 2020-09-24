@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Core.Transaction
+namespace Core.Transactional
 {
     public sealed class Transaction
     {

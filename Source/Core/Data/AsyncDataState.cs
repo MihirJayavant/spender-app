@@ -1,5 +1,5 @@
 ﻿
-namespace Core.AsyncData
+namespace Core.Data
 {
     public enum AsyncDataState
     {

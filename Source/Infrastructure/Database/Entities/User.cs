@@ -1,4 +1,4 @@
-﻿using u = Core.User;
+﻿using u = Core.Transactional;
 
 namespace Infrastructure.Database.Entities
 {

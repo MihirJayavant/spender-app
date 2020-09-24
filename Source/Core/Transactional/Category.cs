@@ -1,5 +1,5 @@
 ﻿
-namespace Core.Transaction
+namespace Core.Transactional
 {
     public enum CategoryType
     {

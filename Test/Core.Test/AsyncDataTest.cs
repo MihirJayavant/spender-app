@@ -1,4 +1,4 @@
-using Core.AsyncData;
+using Core.Data;
 using FluentAssertions;
 using Xunit;
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-using core = Core.Transaction;
+using core = Core.Transactional;
 
 namespace Infrastructure.Database.Entities
 {
@@ -10,6 +10,7 @@ namespace Infrastructure.Database.Entities
         public double Amount { get; set; }
         public DateTime TransactionDate { get; set; }
         public string Category { get; set; }
+        
         public int UserId { get; set; }
         public User User { get; set; }
 
