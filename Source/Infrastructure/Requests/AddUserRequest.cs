@@ -11,10 +11,10 @@ namespace Infrastructure.Requests
 {
     public class AddUserRequest : IAyncRequest<u.User>
     {
-        readonly User user;
+        readonly u.User user;
         readonly IDbOption option;
 
-        public AddUserRequest(User user, IDbOption option)
+        public AddUserRequest(u.User user, IDbOption option)
             => (this.user, this.option) = (user, option);
 
         public async Task<AsyncData<u.User>> RunAsync()
@@ -22,7 +22,7 @@ namespace Infrastructure.Requests
             try 
             {
                 using var db = new ApplicationContext(option);
-                var r = await db.Users.AddAsync(user);
+                var r = await db.Users.AddAsync(User.Parse(user));
                 return AsyncData<u.User>.Loaded(r.Entity.ToCore());
             }
             catch(Exception e)
