@@ -2,7 +2,9 @@
 using Infrastructure.Database.Entities;
 using Infrastructure.Essentials;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Database
@@ -35,6 +37,24 @@ namespace Infrastructure.Database
 
            optionsBuilder
                .UseSqlite($"Filename={dbPath}");
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            foreach (var entry in ChangeTracker.Entries<AuditableEntity>())
+            {
+                switch(entry.State)
+                {
+                    case EntityState.Added: 
+                        entry.Entity.Created = DateTime.Now;
+                        break;
+                    case EntityState.Modified:
+                        entry.Entity.Updated = DateTime.Now;
+                        break;
+                }
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }

@@ -7,8 +7,7 @@ namespace Core.Transactional
         public DateTime Date { get; }
         public int MonthNumber { get; }
         public int Year { get; }
-
-        public string MonthName { get; set; }
+        public string MonthName { get; }
 
         public Month(DateTime date)
         {

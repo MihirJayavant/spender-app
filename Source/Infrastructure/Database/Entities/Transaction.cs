@@ -17,8 +17,7 @@ namespace Infrastructure.Database.Entities
         public core.Transaction GetCore()
             => new core.Transaction
             (
-                id: Id, userId: UserId, title: Title, 
-                amount: Amount, category: null, date: TransactionDate
+                id: Id, title: Title, amount: Amount, date: TransactionDate
             );
     }
 }
