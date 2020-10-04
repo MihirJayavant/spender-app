@@ -7,26 +7,20 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"></Setter>
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Disabled">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#332196F3" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
-            </Style>
+            <Color x:Key="Primary">#03A9F4</Color>
+            <Color x:Key="PrimaryDark">#0288D1</Color>
+            <Color x:Key="NavigationPrimary">#03A9F4</Color>
+            <Color x:Key="Accent">#FF4081</Color>
+            <Color x:Key="AccentDark">#E91E63</Color>
+
+            <Color x:Key="Red500">#F44336</Color>
+            <Color x:Key="Red700">#D32F2F</Color>
+            <Color x:Key="Transulent">#95FFFFFF</Color>
+
+            <LinearGradientBrush x:Key="Gradient" StartPoint="0,1" EndPoint="0,0">
+                <GradientStop Color="#fbc2eb" Offset="0.1"/>
+                <GradientStop Color="#a6c1ee" Offset="1.0"/>
+            </LinearGradientBrush>
         </ResourceDictionary>        
     </Application.Resources>
 </Application>

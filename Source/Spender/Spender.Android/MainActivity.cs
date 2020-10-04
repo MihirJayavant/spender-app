@@ -1,10 +1,7 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 
 namespace Spender.Droid
@@ -18,6 +15,17 @@ namespace Spender.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            global::Xamarin.Forms.Forms.SetFlags(new[]
+                    {
+                        "CollectionView_Experimental",
+                        "Shapes_Experimental",
+                        "CarouselView_Experimental",
+                        "AppTheme_Experimental",
+                        "SwipeView_Experimental",
+                        "Expander_Experimental",
+                        "Brush_Experimental"
+                    });
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

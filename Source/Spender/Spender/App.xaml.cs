@@ -1,8 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Spender.Services;
-using Spender.Views;
+﻿using Xamarin.Forms;
 
 namespace Spender
 {
@@ -12,8 +8,6 @@ namespace Spender
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 
