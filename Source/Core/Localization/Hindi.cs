@@ -19,5 +19,7 @@ namespace Core.Localization
         public string Name => "Hindi";
 
         public string ISOTwoLetterCode => "hi";
+
+        public string DisplayName => "हिंदी";
     }
 }

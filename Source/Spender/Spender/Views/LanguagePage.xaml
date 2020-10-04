@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:Spender.CustomControls"
+             xmlns:vm="clr-namespace:Spender.ViewModels"
+             x:Class="Spender.Views.LanguagePage"
+             Visual="Material"
+             Shell.NavBarIsVisible="False"
+             Background="{StaticResource Key=Gradient}"
+             x:DataType="{x:Type vm:LanguagePageViewModel}"
+             >
+    <ContentPage.Content>
+        <ContentView Padding="15">
+            
+            <custom:DropDown  
+                VerticalOptions="Center"
+                Title="Select Language"
+                TitleColor="Black"
+                TextColor="Black"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                ItemsSource="{Binding LanguageList, Mode=OneTime}" 
+                ItemDisplayBinding="{Binding DisplayName, Mode=OneTime}"/>
+            
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>
