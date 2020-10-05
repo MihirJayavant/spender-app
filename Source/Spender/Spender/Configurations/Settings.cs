@@ -6,20 +6,20 @@ namespace Spender.Configurations
     {
         bool IsLocalDev { get; }
         bool UseDatabase { get; }
-        public bool HasDefaultUser { get; }
+        bool UseEssentials { get; }
     }
 
     public class DevSettings : ISettings
     {
         public bool IsLocalDev => true;
         public bool UseDatabase => true;
-        public bool HasDefaultUser => false;
+        public bool UseEssentials => false;
     }
 
     public class ProdSettings : ISettings
     {
         public bool IsLocalDev => true;
         public bool UseDatabase => true;
-        public bool HasDefaultUser => false;
+        public bool UseEssentials => true;
     }
 }

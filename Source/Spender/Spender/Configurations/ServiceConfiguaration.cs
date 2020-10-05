@@ -19,7 +19,7 @@ namespace Spender.Configurations
         {
             var settings = new DevSettings();
 
-            if (settings.IsLocalDev && settings.UseDatabase)
+            if (settings.IsLocalDev)
             {
                 
             }

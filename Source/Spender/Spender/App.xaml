@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:Spender.CustomControls"
              x:Class="Spender.App">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
@@ -17,10 +18,28 @@
             <Color x:Key="Red700">#D32F2F</Color>
             <Color x:Key="Transulent">#95FFFFFF</Color>
 
-            <LinearGradientBrush x:Key="Gradient" StartPoint="0,1" EndPoint="0,0">
+            <LinearGradientBrush x:Key="GradientLight" StartPoint="0,1" EndPoint="0,0">
                 <GradientStop Color="#fbc2eb" Offset="0.1"/>
                 <GradientStop Color="#a6c1ee" Offset="1.0"/>
             </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="GradientDark" StartPoint="0,1" EndPoint="0,0">
+                <GradientStop Color="#ec77ab" Offset="0.1"/>
+                <GradientStop Color="#7873f5" Offset="1.0"/>
+            </LinearGradientBrush>
+
+            <Style Class="GradientBg" TargetType="ContentPage">
+                <Setter Property="Background" 
+                        Value="{AppThemeBinding Light={StaticResource Key=GradientLight}, Dark={StaticResource Key=GradientDark} }"                         
+                        />
+            </Style>
+
+            <Style TargetType="custom:DropDown">
+                <Setter Property="TitleColor" Value="Black"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+
         </ResourceDictionary>        
     </Application.Resources>
 </Application>
