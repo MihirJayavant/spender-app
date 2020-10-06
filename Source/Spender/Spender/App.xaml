@@ -28,9 +28,9 @@
                 <GradientStop Color="#7873f5" Offset="1.0"/>
             </LinearGradientBrush>
 
-            <Style Class="GradientBg" TargetType="ContentPage">
+            <Style x:Key="GradientBg"  TargetType="ContentPage">
                 <Setter Property="Background" 
-                        Value="{AppThemeBinding Light={StaticResource Key=GradientLight}, Dark={StaticResource Key=GradientDark} }"                         
+                        Value="{AppThemeBinding Light={StaticResource GradientLight}, Dark={StaticResource GradientDark} }"                         
                         />
             </Style>
 

@@ -8,12 +8,6 @@ namespace Spender
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute("language", typeof(LanguagePage));
-        }
-
-        protected override async void OnAppearing()
-        {
-            //await Current.GoToAsync("//language", true);
         }
 
     }

@@ -7,6 +7,7 @@ namespace Core.Localization
         public string Name { get; }
         public string CurrencySymbol { get; }
         public string CultureCode { get; }
+        public string Display => $"{Name} ({CurrencySymbol})";
 
         public Country(CultureInfo culture)
         {

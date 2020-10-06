@@ -1,6 +1,6 @@
-﻿
-
+﻿using Core.Services;
 using Prism.Events;
+using Spender.Services;
 
 namespace Spender.Configurations
 {
@@ -19,14 +19,10 @@ namespace Spender.Configurations
         {
             var settings = new DevSettings();
 
-            if (settings.IsLocalDev)
-            {
-                
-            }
+            if (settings.UseEssentials)
+                container.Register<ILocalStorage, LocalStorage>();
             else
-            {
-                
-            }
+                container.Register<ILocalStorage, InMemoryStorage>();
 
             container.RegisterSingleton<ISettings, DevSettings>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
@@ -34,6 +30,7 @@ namespace Spender.Configurations
 
         private static void AddProdServices(this AppContainer container)
         {
+            container.Register<ILocalStorage, LocalStorage>();
             container.RegisterSingleton<ISettings, ProdSettings>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
         }

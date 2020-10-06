@@ -30,9 +30,14 @@
     </Shell.Resources>
 
     <ShellItem Route="start">
-        <ShellContent ContentTemplate="{DataTemplate views:LanguagePage}" />
+        <ShellContent ContentTemplate="{DataTemplate views:StartPage}" />
     </ShellItem>
 
+    <TabBar Route="login">
+        <Tab >
+            <ShellContent ContentTemplate="{DataTemplate views:LanguagePage}" />
+        </Tab>
+    </TabBar>
 
 
 </Shell>

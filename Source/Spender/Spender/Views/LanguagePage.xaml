@@ -6,31 +6,50 @@
              x:Class="Spender.Views.LanguagePage"
              Visual="Material"
              Shell.NavBarIsVisible="False"
-             StyleClass="GradientBg"
+             Background="{StaticResource GradientLight}"
              x:DataType="{x:Type vm:LanguagePageViewModel}"
              >
     <ContentPage.Content>
         <ContentView Padding="15">
+            <Grid RowDefinitions="100, 100, *, 100" ColumnDefinitions="*"
+                  CompressedLayout.IsHeadless="True">
 
-            <StackLayout VerticalOptions="Center">
+                <Label 
+                    Text="Welcome To Spender App" 
+                    Margin="15" HorizontalOptions="Center"
+                    FontSize="Title" TextColor="DarkViolet" />
 
-                <Label Text="Select a language" 
-                       Margin="15" HorizontalOptions="Center"
-                       FontSize="Title" TextColor="Black"
-                       
-                       />
-
-                <custom:DropDown
-                    Title="Select Language"
+                <Label Grid.Row="1"
+                    Text="Select a language and currency" 
                     HorizontalTextAlignment="Center"
-                    ItemsSource="{Binding LanguageList, Mode=OneTime}" 
-                    ItemDisplayBinding="{Binding DisplayName, Mode=OneTime}"/>
+                    Margin="15" HorizontalOptions="Center"
+                    FontSize="Title" TextColor="Black" />
 
-                <Button Text="Next" BackgroundColor="{StaticResource Red500}" 
-                        Margin="15" TextColor="White" FontSize="Body" Padding="5"
+                <StackLayout VerticalOptions="Center" 
+                             CompressedLayout.IsHeadless="True"
+                             Grid.Row="2" Spacing="30">
+                    
+                    <custom:DropDown
+                        Title="Select Language"
+                        HorizontalTextAlignment="Center"
+                        ItemsSource="{Binding LanguageList, Mode=OneTime}" 
+                        ItemDisplayBinding="{Binding DisplayName, Mode=OneTime}"/>
+
+                    <custom:DropDown
+                        Title="Select Country"
+                        HorizontalTextAlignment="Center"
+                        ItemsSource="{Binding CountryList, Mode=OneTime}" 
+                        ItemDisplayBinding="{Binding Display, Mode=OneTime}"/>
+
+                </StackLayout>
+                
+                
+                <Button Grid.Row="3" VerticalOptions="Center"
+                    Text="Next" BackgroundColor="{StaticResource Red500}" 
+                    Margin="15" TextColor="White" FontSize="Body" Padding="5"
                         />
+            </Grid>
 
-            </StackLayout>
             
             
         </ContentView>

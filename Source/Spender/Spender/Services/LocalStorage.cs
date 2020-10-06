@@ -23,4 +23,19 @@ namespace Spender.Services
         public void Set(string key, string value)
             => Preferences.Set(key, value);
     }
+
+    class InMemoryStorage : ILocalStorage
+    {
+        public bool Get(string key, bool defaultValue) => defaultValue;
+
+        public string Get(string key, string defaultValue) => defaultValue;
+
+        public bool Has(string key) => false;
+
+        public bool IsUserCreated() => false;
+
+        public void Set(string key, bool value) { }
+
+        public void Set(string key, string value) { }
+    }
 }

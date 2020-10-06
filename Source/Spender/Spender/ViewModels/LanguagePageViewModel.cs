@@ -6,20 +6,22 @@ namespace Spender.ViewModels
     class LanguagePageViewModel : BindableBase
     {
         public ILanguage[] LanguageList { get; }
+        public Country[] CountryList { get; }
 
-        private int selected;
+        private int selectedLanguage;
 
-        public int Selected
+        public int SelectedLanguage
         {
-            get => selected;
-            set => SetProperty(ref selected, value);
+            get => selectedLanguage;
+            set => SetProperty(ref selectedLanguage, value);
         }
 
 
         internal LanguagePageViewModel()
         {
             LanguageList = Languages.All;
-            selected = 0;
+            selectedLanguage = 0;
+            CountryList = new English().Countries;
         }
     }
 }
