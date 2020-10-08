@@ -32,12 +32,16 @@
                     <custom:DropDown
                         Title="Select Language"
                         HorizontalTextAlignment="Center"
+                        SelectedIndexChanged="DropDown_SelectedIndexChanged"
+                        SelectedIndex="{Binding SelectedLanguageIndex}"
                         ItemsSource="{Binding LanguageList, Mode=OneTime}" 
                         ItemDisplayBinding="{Binding DisplayName, Mode=OneTime}"/>
 
                     <custom:DropDown
                         Title="Select Country"
                         HorizontalTextAlignment="Center"
+                        SelectedIndexChanged="DropDown_SelectedIndexChanged"
+                        SelectedIndex="{Binding SelectedCountryIndex}"
                         ItemsSource="{Binding CountryList, Mode=OneTime}" 
                         ItemDisplayBinding="{Binding Display, Mode=OneTime}"/>
 
@@ -47,6 +51,7 @@
                 <Button Grid.Row="3" VerticalOptions="Center"
                     Text="Next" BackgroundColor="{StaticResource Red500}" 
                     Margin="15" TextColor="White" FontSize="Body" Padding="5"
+                    Command="{Binding NextCommand}"
                         />
             </Grid>
 
