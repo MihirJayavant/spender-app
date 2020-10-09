@@ -1,5 +1,5 @@
 ﻿using Xamarin.Forms;
-using Spender.Views;
+using Spender.Configurations;
 
 namespace Spender
 {
@@ -8,6 +8,8 @@ namespace Spender
         public AppShell()
         {
             InitializeComponent();
+            AppContainer.Instance.AddServices();
+            AppContainer.Instance.AddViewModels();
         }
 
     }

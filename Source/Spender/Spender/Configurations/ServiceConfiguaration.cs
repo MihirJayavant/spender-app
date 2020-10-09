@@ -1,5 +1,6 @@
 ﻿using Core.Services;
 using Prism.Events;
+using Spender.Localization;
 using Spender.Services;
 
 namespace Spender.Configurations
@@ -26,6 +27,8 @@ namespace Spender.Configurations
 
             container.RegisterSingleton<ISettings, DevSettings>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
+            container.Register<ILocalizationService, LocalizationService>();
+            container.RegisterSingleton<LocalizationResourceManager>();
         }
 
         private static void AddProdServices(this AppContainer container)
@@ -33,6 +36,8 @@ namespace Spender.Configurations
             container.Register<ILocalStorage, LocalStorage>();
             container.RegisterSingleton<ISettings, ProdSettings>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
+            container.Register<ILocalizationService, LocalizationService>();
+            container.RegisterSingleton<LocalizationResourceManager>();
         }
 
     }

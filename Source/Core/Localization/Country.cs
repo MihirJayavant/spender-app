@@ -7,6 +7,7 @@ namespace Core.Localization
         public string Name { get; }
         public string CurrencySymbol { get; }
         public string CultureCode { get; }
+        public string ISOLanguageCode { get; }
         public string Display => $"{Name} ({CurrencySymbol})";
 
         public Country(CultureInfo culture)
@@ -15,6 +16,7 @@ namespace Core.Localization
             Name = region.DisplayName;
             CurrencySymbol = region.CurrencySymbol;
             CultureCode = culture.Name;
+            ISOLanguageCode = culture.TwoLetterISOLanguageName;
         }
     }
 }

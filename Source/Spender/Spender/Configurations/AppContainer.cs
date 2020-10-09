@@ -23,7 +23,7 @@ namespace Spender.Configurations
 
         public void Register<T>() => container.Register<T>();
 
-        public void RegisterSingletone<T>() => container.Register<T>(Reuse.Singleton);
+        public void RegisterSingleton<T>() => container.Register<T>(Reuse.Singleton);
 
         public T Resolve<T>() => container.Resolve<T>();
 

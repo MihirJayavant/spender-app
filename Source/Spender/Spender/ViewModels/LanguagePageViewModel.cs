@@ -1,10 +1,12 @@
 ﻿using Core.Localization;
+using Core.Services;
 using Prism.Commands;
 using Prism.Mvvm;
+using Spender.Services;
 
 namespace Spender.ViewModels
 {
-    class LanguagePageViewModel : BindableBase
+    public class LanguagePageViewModel : BindableBase
     {
         public ILanguage[] LanguageList { get; }
         public Country[] CountryList { get; }
@@ -34,8 +36,10 @@ namespace Spender.ViewModels
 
         public DelegateCommand NextCommand { get; }
 
+        readonly ILocalizationService localizationService;
 
-        internal LanguagePageViewModel()
+
+        public LanguagePageViewModel(ILocalizationService localizationService)
         {
             LanguageList = Languages.All;
             selectedLanguageIndex = -1;
@@ -43,6 +47,7 @@ namespace Spender.ViewModels
             CountryList = new English().Countries;
 
             NextCommand = new DelegateCommand(GoToUserPage).ObservesCanExecute(() => IsEnabled);
+            this.localizationService = localizationService;
         }
 
         public void OnDropDownChange()
@@ -56,7 +61,11 @@ namespace Spender.ViewModels
 
         void GoToUserPage()
         {
-            System.Console.WriteLine("Goto User Page");
+            var selectedLang = LanguageList[selectedLanguageIndex];
+            var selectedCountry = CountryList[SelectedCountryIndex];
+
+            localizationService.SetLanguage(selectedLang.Countries[0].ISOLanguageCode);
+            localizationService.SetCurrency( selectedCountry.CultureCode);
         }
     }
 }
