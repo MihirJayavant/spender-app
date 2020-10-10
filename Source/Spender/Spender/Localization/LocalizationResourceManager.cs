@@ -8,7 +8,7 @@ namespace Spender.Localization
 {
 
     public class LocalizationResourceManager : INotifyPropertyChanged
-        {
+    {
 
         public string this[string text] => AppResources.ResourceManager.GetString(text, AppResources.Culture);
 

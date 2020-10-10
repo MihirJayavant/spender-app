@@ -11,8 +11,8 @@ namespace Spender.Services
     {
         void SetLanguage(string code);
         void SetCurrency(string cultureCode);
-        void GetLanguage();
-        void GetCurrency();
+        string GetLanguage();
+        string GetCurrency();
     }
 
     public class LocalizationService : ILocalizationService
@@ -29,20 +29,12 @@ namespace Spender.Services
             manager.SetCulture(culture);
         }
 
-        public void SetCurrency(string cultureCode)
-        {
-            localStorage.Set("currency", cultureCode);
-        }
+        public void SetCurrency(string cultureCode) => localStorage.Set("currency", cultureCode);
 
-        public void GetLanguage()
-        {
-            localStorage.Get("language", "en");
-        }
+        public string GetLanguage() 
+            => localStorage.Get("language", "en");
 
-        public void GetCurrency()
-        {
-            localStorage.Set("currency", "en-US");
-        }
+        public string GetCurrency() => localStorage.Get("currency", "en-US");
 
     }
 }

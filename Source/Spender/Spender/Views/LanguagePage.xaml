@@ -16,12 +16,12 @@
                   CompressedLayout.IsHeadless="True">
 
                 <Label 
-                    Text="Welcome To Spender App" 
+                    Text="{trans:Translate LangPageHeading}" 
                     Margin="15" HorizontalOptions="Center"
                     FontSize="Title" TextColor="DarkViolet" />
 
                 <Label Grid.Row="1"
-                    Text="Select a language and currency" 
+                    Text="{trans:Translate LangPageTitle}" 
                     HorizontalTextAlignment="Center"
                     Margin="15" HorizontalOptions="Center"
                     FontSize="Title" TextColor="Black" />
@@ -33,15 +33,15 @@
                     <custom:DropDown
                         Title="Select Language"
                         HorizontalTextAlignment="Center"
-                        SelectedIndexChanged="DropDown_SelectedIndexChanged"
+                        SelectedIndexChanged="LangChanged"
                         SelectedIndex="{Binding SelectedLanguageIndex}"
                         ItemsSource="{Binding LanguageList, Mode=OneTime}" 
                         ItemDisplayBinding="{Binding DisplayName, Mode=OneTime}"/>
 
                     <custom:DropDown
-                        Title="Select Country"
+                        Title="{trans:Translate SelectCountry}"
                         HorizontalTextAlignment="Center"
-                        SelectedIndexChanged="DropDown_SelectedIndexChanged"
+                        SelectedIndexChanged="CountryChanged"
                         SelectedIndex="{Binding SelectedCountryIndex}"
                         ItemsSource="{Binding CountryList, Mode=OneTime}" 
                         ItemDisplayBinding="{Binding Display, Mode=OneTime}"/>
@@ -52,8 +52,7 @@
                 <Button Grid.Row="3" VerticalOptions="Center"
                     Text="{trans:Translate NextText}" BackgroundColor="{StaticResource Red500}" 
                     Margin="15" TextColor="White" FontSize="Body" Padding="5"
-                    Command="{Binding NextCommand}"
-                        />
+                    Command="{Binding NextCommand}" />
             </Grid>
 
             

@@ -9,20 +9,15 @@ namespace Spender.Localization
     public class TranslateExtension : IMarkupExtension<BindingBase>
     {
         public string Text { get; set; }
-        object IMarkupExtension.ProvideValue(IServiceProvider serviceProvider)
-        {
-            return ProvideValue(serviceProvider);
-        }
+        public string StringFormat { get; set; }
+        object IMarkupExtension.ProvideValue(IServiceProvider serviceProvider) => ProvideValue(serviceProvider);
 
-        public BindingBase ProvideValue(IServiceProvider serviceProvider)
+        public BindingBase ProvideValue(IServiceProvider serviceProvider) => new Binding
         {
-            var binding = new Binding
-            {
-                Mode = BindingMode.OneWay,
-                Path = $"[{Text}]",
-                Source = AppContainer.Instance.Resolve<LocalizationResourceManager>(),
-            };
-            return binding;
-        }
+            Mode = BindingMode.OneWay,
+            Path = $"[{Text}]",
+            Source = AppContainer.Instance.Resolve<LocalizationResourceManager>(),
+            StringFormat = StringFormat
+        };
     }
 }

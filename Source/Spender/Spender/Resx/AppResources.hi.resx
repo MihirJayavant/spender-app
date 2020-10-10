@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LangPageHeading" xml:space="preserve">
+    <value>आपका स्वागत है स्पेंडर ऐप</value>
+  </data>
+  <data name="LangPageTitle" xml:space="preserve">
+    <value>भाषा और मुद्रा का चयन करें</value>
+  </data>
   <data name="NextText" xml:space="preserve">
     <value>अगला</value>
+  </data>
+  <data name="SelectCountry" xml:space="preserve">
+    <value>देश का चयन करें</value>
   </data>
 </root>

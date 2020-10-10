@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LangPageHeading" xml:space="preserve">
+    <value>Welcome To Spender App</value>
+  </data>
+  <data name="LangPageTitle" xml:space="preserve">
+    <value>Select language and currency</value>
+  </data>
   <data name="NextText" xml:space="preserve">
     <value>Next</value>
+  </data>
+  <data name="SelectCountry" xml:space="preserve">
+    <value>Select Country</value>
   </data>
 </root>

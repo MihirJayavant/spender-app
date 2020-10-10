@@ -61,11 +61,38 @@ namespace Spender.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Welcome To Spender App.
+        /// </summary>
+        public static string LangPageHeading {
+            get {
+                return ResourceManager.GetString("LangPageHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select language and currency.
+        /// </summary>
+        public static string LangPageTitle {
+            get {
+                return ResourceManager.GetString("LangPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string NextText {
             get {
                 return ResourceManager.GetString("NextText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Country.
+        /// </summary>
+        public static string SelectCountry {
+            get {
+                return ResourceManager.GetString("SelectCountry", resourceCulture);
             }
         }
     }

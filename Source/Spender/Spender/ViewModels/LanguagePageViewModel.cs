@@ -1,5 +1,4 @@
 ﻿using Core.Localization;
-using Core.Services;
 using Prism.Commands;
 using Prism.Mvvm;
 using Spender.Services;
@@ -12,7 +11,6 @@ namespace Spender.ViewModels
         public Country[] CountryList { get; }
 
         private int selectedLanguageIndex;
-
         public int SelectedLanguageIndex
         {
             get => selectedLanguageIndex;
@@ -20,7 +18,6 @@ namespace Spender.ViewModels
         }
 
         private int selectedCountryIndex;
-
         public int SelectedCountryIndex
         {
             get => selectedCountryIndex;
@@ -42,7 +39,7 @@ namespace Spender.ViewModels
         public LanguagePageViewModel(ILocalizationService localizationService)
         {
             LanguageList = Languages.All;
-            selectedLanguageIndex = -1;
+            selectedLanguageIndex = 0;
             SelectedCountryIndex = -1;
             CountryList = new English().Countries;
 
@@ -50,13 +47,13 @@ namespace Spender.ViewModels
             this.localizationService = localizationService;
         }
 
-        public void OnDropDownChange()
-        {
-            if (selectedCountryIndex != -1 && selectedLanguageIndex != -1)
-                IsEnabled = true;
-            else
-                IsEnabled = false;
+        public void OnDropDownChange() => IsEnabled = selectedCountryIndex != -1 && selectedLanguageIndex != -1;
 
+        public void OnLangChange()
+        {
+            var selectedLang = LanguageList[selectedLanguageIndex];
+            localizationService.SetLanguage(selectedLang.Countries[0].ISOLanguageCode);
+            OnDropDownChange();
         }
 
         void GoToUserPage()

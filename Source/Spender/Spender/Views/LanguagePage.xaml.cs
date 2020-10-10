@@ -13,9 +13,8 @@ namespace Spender.Views
             BindingContext = vm = AppContainer.Instance.Resolve<LanguagePageViewModel>();
         }
 
-        private void DropDown_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            vm.OnDropDownChange();
-        }
+        private void LangChanged(object sender, System.EventArgs e) => vm.OnLangChange();
+
+        private void CountryChanged(object sender, System.EventArgs e) => vm.OnDropDownChange();
     }
 }
