@@ -61,6 +61,15 @@ namespace Spender.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Your Name.
+        /// </summary>
+        public static string EnterName {
+            get {
+                return ResourceManager.GetString("EnterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome To Spender App.
         /// </summary>
         public static string LangPageHeading {

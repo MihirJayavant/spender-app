@@ -7,6 +7,7 @@ namespace Spender.Configurations
         public static void AddViewModels(this AppContainer container)
         {
             container.Register<LanguagePageViewModel>();
+            container.Register<AddUserPageViewModel>();
         }
 
     }

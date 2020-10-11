@@ -34,17 +34,19 @@ namespace Spender.ViewModels
         public DelegateCommand NextCommand { get; }
 
         readonly ILocalizationService localizationService;
+        readonly INavigation navigation;
 
 
-        public LanguagePageViewModel(ILocalizationService localizationService)
+        public LanguagePageViewModel(ILocalizationService localizationService, INavigation navigation)
         {
             LanguageList = Languages.All;
-            selectedLanguageIndex = 0;
+            SelectedLanguageIndex = -1;
             SelectedCountryIndex = -1;
             CountryList = new English().Countries;
 
             NextCommand = new DelegateCommand(GoToUserPage).ObservesCanExecute(() => IsEnabled);
             this.localizationService = localizationService;
+            this.navigation = navigation;
         }
 
         public void OnDropDownChange() => IsEnabled = selectedCountryIndex != -1 && selectedLanguageIndex != -1;
@@ -56,13 +58,15 @@ namespace Spender.ViewModels
             OnDropDownChange();
         }
 
-        void GoToUserPage()
+        async void GoToUserPage()
         {
             var selectedLang = LanguageList[selectedLanguageIndex];
             var selectedCountry = CountryList[SelectedCountryIndex];
 
             localizationService.SetLanguage(selectedLang.Countries[0].ISOLanguageCode);
             localizationService.SetCurrency( selectedCountry.CultureCode);
+
+            await navigation.GotoAsync("addUser");
         }
     }
 }

@@ -40,6 +40,21 @@
                 <Setter Property="FontSize" Value="20"/>
             </Style>
 
+            <Style TargetType="custom:TextBox">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="PlaceholderColor" Value="Black"/>
+            </Style>
+
+            <Style Class="NextBtn" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Red500}"/>
+                <Setter Property="Margin" Value="15"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="Body"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+
         </ResourceDictionary>        
     </Application.Resources>
 </Application>

@@ -1,9 +1,11 @@
 ﻿using Spender.Configurations;
 using Spender.ViewModels;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace Spender.Views
 {
+    [DesignTimeVisible(false)]
     public partial class LanguagePage : ContentPage
     {
         LanguagePageViewModel vm;

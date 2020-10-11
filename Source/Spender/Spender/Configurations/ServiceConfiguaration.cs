@@ -28,6 +28,7 @@ namespace Spender.Configurations
             container.RegisterSingleton<ISettings, DevSettings>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
             container.Register<ILocalizationService, LocalizationService>();
+            container.Register<INavigation, Navigation>();
             container.RegisterSingleton<LocalizationResourceManager>();
         }
 
@@ -38,6 +39,7 @@ namespace Spender.Configurations
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
             container.Register<ILocalizationService, LocalizationService>();
             container.RegisterSingleton<LocalizationResourceManager>();
+            container.Register<INavigation, Navigation>();
         }
 
     }

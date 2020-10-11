@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:custom="clr-namespace:Spender.CustomControls"
              xmlns:vm="clr-namespace:Spender.ViewModels"
              xmlns:trans="clr-namespace:Spender.Localization"
+             mc:Ignorable="d"
              x:Class="Spender.Views.LanguagePage"
              Visual="Material"
              Shell.NavBarIsVisible="False"
@@ -50,8 +53,8 @@
                 
                 
                 <Button Grid.Row="3" VerticalOptions="Center"
-                    Text="{trans:Translate NextText}" BackgroundColor="{StaticResource Red500}" 
-                    Margin="15" TextColor="White" FontSize="Body" Padding="5"
+                    Text="{trans:Translate NextText}"  
+                    d:Text="Next" StyleClass="NextBtn"
                     Command="{Binding NextCommand}" />
             </Grid>
 
