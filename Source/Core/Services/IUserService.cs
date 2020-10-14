@@ -6,6 +6,7 @@ namespace Core.Services
 {
     public interface IUserService
     {
-        Task<AsyncData<User>> Add(User user);
+        Task<AsyncData<User>> Add(string user);
+        bool IsUserCreated { get; }
     }
 }

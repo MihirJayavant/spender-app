@@ -1,5 +1,8 @@
-﻿using Prism.Commands;
+﻿using Core.Data;
+using Core.Services;
+using Prism.Commands;
 using Prism.Mvvm;
+using Spender.Services;
 
 namespace Spender.ViewModels
 {
@@ -22,15 +25,23 @@ namespace Spender.ViewModels
 
 
         public DelegateCommand NextCommand { get; set; }
+        readonly IUserService userService;
+        readonly INavigation navigation;
 
-        public AddUserPageViewModel()
+        public AddUserPageViewModel(IUserService userService, INavigation navigation)
         {
-            NextCommand = new DelegateCommand(GoToDashBoard).ObservesCanExecute(() => IsEnabled);
+            NextCommand = new DelegateCommand(GoToDashboard).ObservesCanExecute(() => IsEnabled);
+            this.userService = userService;
+            this.navigation = navigation;
         }
 
-        private void GoToDashBoard()
+        private async void GoToDashboard()
         {
-            
+            var result = await userService.Add(name);
+            if(result.State == AsyncDataState.Loaded)
+                await navigation.GotoAsync("//dashboard");
+            else
+                System.Console.WriteLine(result.Error);
         }
     }
 }

@@ -39,5 +39,11 @@
         </Tab>
     </TabBar>
 
+    <TabBar Route="dashboard">
+        <Tab >
+            <ShellContent ContentTemplate="{DataTemplate views:Dashboard}" />
+        </Tab>
+    </TabBar>
+
 
 </Shell>

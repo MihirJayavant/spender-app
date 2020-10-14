@@ -16,14 +16,13 @@ namespace Infrastructure.Database
         public ApplicationContext(IDbOption option) : base()
             => this.option = option;
 
-        public async Task EnsureCreated()
+        public async Task EnsureDbAsync()
         {
-            await Database.EnsureCreatedAsync();
+            await Database.MigrateAsync();
         }
 
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<User> Users { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
