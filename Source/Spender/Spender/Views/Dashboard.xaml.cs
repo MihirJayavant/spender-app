@@ -1,20 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Spender.Configurations;
+using Spender.ViewModels;
+using System.ComponentModel;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Spender.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(false)]
     public partial class Dashboard : ContentPage
     {
+        readonly DashboardViewModel vm;
         public Dashboard()
         {
             InitializeComponent();
+            BindingContext = vm = AppContainer.Instance.Resolve<DashboardViewModel>();
+        }
+
+        protected override async void OnAppearing()
+        {
+            await vm.SetUser();
         }
     }
 }

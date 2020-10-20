@@ -22,8 +22,8 @@ namespace Infrastructure.Requests
             try 
             {
                 using var db = new ApplicationContext(option);
-                var r = await db.Users.AddAsync(new User { Name=name, IsDefault=true });
-                return AsyncData<u.User>.Loaded(r.Entity.ToCore());
+                var result = await db.Users.AddAsync(new User { Name=name, IsDefault=true });
+                return AsyncData<u.User>.Loaded(result.Entity.ToCore());
             }
             catch(Exception e)
             {

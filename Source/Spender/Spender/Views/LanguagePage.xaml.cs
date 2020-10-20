@@ -8,7 +8,7 @@ namespace Spender.Views
     [DesignTimeVisible(false)]
     public partial class LanguagePage : ContentPage
     {
-        LanguagePageViewModel vm;
+        readonly LanguagePageViewModel vm;
         public LanguagePage()
         {
             InitializeComponent();

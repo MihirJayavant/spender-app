@@ -8,6 +8,7 @@ namespace Spender.Configurations
         {
             container.Register<LanguagePageViewModel>();
             container.Register<AddUserPageViewModel>();
+            container.Register<DashboardViewModel>();
         }
 
     }

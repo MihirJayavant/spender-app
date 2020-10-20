@@ -31,31 +31,33 @@ namespace Spender.Configurations
 
             if(settings.UseDatabase)
             {
-                container.Register<IUserService, UserService>();
+                container.RegisterSingleton<IUserService, UserService>();
             }
             else
             {
-                container.Register<IUserService, mem.UserService>();
+                container.RegisterSingleton<IUserService, mem.UserService>();
             }
 
             container.RegisterSingleton<ISettings, DevSettings>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
-            container.Register<ILocalizationService, LocalizationService>();
-            container.Register<INavigation, Navigation>();
             container.RegisterSingleton<IDbOption, DbOptions>();
             container.RegisterSingleton<LocalizationResourceManager>();
+
+            container.Register<ILocalizationService, LocalizationService>();
+            container.Register<INavigation, Navigation>();
         }
 
         private static void AddProdServices(this AppContainer container)
         {
-            container.Register<ILocalStorage, LocalStorage>();
             container.RegisterSingleton<ISettings, ProdSettings>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
+            container.RegisterSingleton<IUserService, UserService>();
+            container.RegisterSingleton<LocalizationResourceManager>();
+
+            container.Register<ILocalStorage, LocalStorage>();
             container.Register<ILocalizationService, LocalizationService>();
-            container.Register<IUserService, UserService>();
             container.RegisterSingleton<IDbOption, DbOptions>();
             container.Register<INavigation, Navigation>();
-            container.RegisterSingleton<LocalizationResourceManager>();
         }
 
     }
