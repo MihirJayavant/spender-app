@@ -27,17 +27,16 @@
         </CollectionView.ItemsSource>
 
         <CollectionView.Header>
-            <ContentView HeightRequest="200" BackgroundColor="White">
-                
-            </ContentView>
+            <Grid HeightRequest="200" BackgroundColor="White">
+                <BoxView VerticalOptions="Center" HorizontalOptions="Center"
+                    WidthRequest="50" HeightRequest="50" Color="Red"/>
+            </Grid>
         </CollectionView.Header>
 
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Grid RowDefinitions="50, 40"  ColumnDefinitions="*"
-                      CompressedLayout.IsHeadless="True" 
-                      
-                      >
+                      CompressedLayout.IsHeadless="True" >
                     <Ellipse Fill="Red"
                              WidthRequest="50"
                              HeightRequest="50"

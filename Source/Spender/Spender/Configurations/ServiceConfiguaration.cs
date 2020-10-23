@@ -32,10 +32,12 @@ namespace Spender.Configurations
             if(settings.UseDatabase)
             {
                 container.RegisterSingleton<IUserService, UserService>();
+                container.Register<IStartupService, StartupService>();
             }
             else
             {
                 container.RegisterSingleton<IUserService, mem.UserService>();
+                container.Register<IStartupService, mem.StartupService>();
             }
 
             container.RegisterSingleton<ISettings, DevSettings>();
