@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converter="clr-namespace:Spender.Converters"
+             xmlns:toolkit="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              mc:Ignorable="d"
              x:Class="Spender.Views.Dashboard"
              Shell.NavBarIsVisible="False"
@@ -27,31 +29,34 @@
         </CollectionView.ItemsSource>
 
         <CollectionView.Header>
-            <Grid HeightRequest="200" BackgroundColor="White">
-                <BoxView VerticalOptions="Center" HorizontalOptions="Center"
-                    WidthRequest="50" HeightRequest="50" Color="Red"/>
-            </Grid>
+            <FlexLayout CompressedLayout.IsHeadless="True"
+                HeightRequest="250" BackgroundColor="White" 
+                JustifyContent="Center" AlignItems="Center">
+
+                <toolkit:AvatarView Size="50" Color="#B3E5FC" 
+                                    TextColor="Black" Text="M"
+                                    />
+
+                <Label Text="Mihir" FontSize="25" TextColor="Black"
+                       VerticalOptions="Center" Margin="20"/>
+               
+
+            </FlexLayout>
         </CollectionView.Header>
 
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Grid RowDefinitions="50, 40"  ColumnDefinitions="*"
-                      CompressedLayout.IsHeadless="True" >
-                    <Ellipse Fill="Red"
-                             WidthRequest="50"
-                             HeightRequest="50"
-                             HorizontalOptions="Center" />
-                    <Label Text="N" FontSize="Title"
-                           VerticalOptions="Center" 
-                           HorizontalOptions="Center"
-                           TextColor="White"
-                           />
-                    <Label Grid.Row="1" 
-                            Text="{Binding .}" HorizontalOptions="Center"
+                <FlexLayout Direction="Column" JustifyContent="Center" AlignItems="Center"
+                      CompressedLayout.IsHeadless="True" Padding="10">
+                    <toolkit:AvatarView Size="50" Color="Red" 
+                                    TextColor="White"
+                                    Text="N" />
+                    <Label
+                           Text="{Binding .}" HorizontalOptions="Center"
                            FontSize="Body" TextColor="Black"
                            HorizontalTextAlignment="Center"
                            />
-                </Grid>
+                </FlexLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>
         

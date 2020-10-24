@@ -33,7 +33,7 @@
 
         <Label VerticalOptions="Center" HorizontalOptions="Center"
             d:Text="M"  TextColor="Black"
-            Text="{Binding Name, Mode=OneWay, Converter={StaticResource initialsOnly}}"
+            Text="{Binding Name, Mode=OneWay, Converter={StaticResource converter:initialsOnly}}"
             Grid.Row="1" Grid.Column="0" FontSize="40"  />
 
         <FlexLayout Margin="10" Direction="Column"
