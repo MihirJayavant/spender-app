@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Spender.Views.Dashboard"
+             Shell.NavBarIsVisible="False"
+             Title="Dashboard"
+             >
+
+    <CollectionView BackgroundColor="AliceBlue">
+
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" Span="4" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+                <x:String>Netflix</x:String>
+                <x:String>Hotstar</x:String>
+                <x:String>Movies</x:String>
+                <x:String>Spotify</x:String>
+                <x:String>Xbox game pass</x:String>
+                <x:String>Others</x:String>
+            </x:Array>
+        </CollectionView.ItemsSource>
+
+        <CollectionView.Header>
+            <Grid HeightRequest="200" BackgroundColor="White">
+                <BoxView VerticalOptions="Center" HorizontalOptions="Center"
+                    WidthRequest="50" HeightRequest="50" Color="Red"/>
+            </Grid>
+        </CollectionView.Header>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid RowDefinitions="50, 40"  ColumnDefinitions="*"
+                      CompressedLayout.IsHeadless="True" >
+                    <Ellipse Fill="Red"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             HorizontalOptions="Center" />
+                    <Label Text="N" FontSize="Title"
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           />
+                    <Label Grid.Row="1" 
+                            Text="{Binding .}" HorizontalOptions="Center"
+                           FontSize="Body" TextColor="Black"
+                           HorizontalTextAlignment="Center"
+                           />
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        
+    </CollectionView>
+    
+</ContentPage>

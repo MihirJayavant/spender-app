@@ -19,5 +19,7 @@ namespace Core.Localization
         public string Name => "English";
 
         public string ISOTwoLetterCode => "en";
+
+        public string DisplayName => "English";
     }
 }

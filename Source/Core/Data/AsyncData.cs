@@ -5,10 +5,12 @@ namespace Core.Data
     public class AsyncData<T> where T : class
     {
         public AsyncDataState State { get; } = AsyncDataState.Initial;
-
         public T? Data { get; }
-
         public string Error { get; } = "";
+
+        public bool IsLoaded => State == AsyncDataState.Loaded;
+        public bool IsLoading => State == AsyncDataState.Loading;
+        public bool HasError => State == AsyncDataState.Error;
 
         public AsyncData(T? data, AsyncDataState state = AsyncDataState.Initial, string error = "")
             => (Data, State, Error) = (data, state, error);

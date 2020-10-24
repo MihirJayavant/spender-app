@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:Spender.CustomControls"
+             xmlns:converter="clr-namespace:Spender.Converters"
+             xmlns:trans="clr-namespace:Spender.Localization"
+             mc:Ignorable="d"
+             x:Class="Spender.Views.AddUserPage"
+             Visual="Material"
+             Shell.NavBarIsVisible="False"
+             Background="{StaticResource GradientLight}"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:FirstLetterConverter x:Key="initialsOnly" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid CompressedLayout.IsHeadless="True"
+          VerticalOptions="StartAndExpand" 
+          RowDefinitions="100, 200, *" 
+          ColumnDefinitions="*">
+
+        <Ellipse Fill="#B3E5FC" 
+                 StrokeThickness="2"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 HeightRequest="100"
+                 WidthRequest="100"
+                 Grid.Row="1" Grid.Column="0" />
+
+        <Label VerticalOptions="Center" HorizontalOptions="Center"
+            d:Text="M"  TextColor="Black"
+            Text="{Binding Name, Mode=OneWay, Converter={StaticResource initialsOnly}}"
+            Grid.Row="1" Grid.Column="0" FontSize="40"  />
+
+        <FlexLayout Margin="10" Direction="Column"
+                    Grid.Row="2" Grid.Column="0" 
+                    CompressedLayout.IsHeadless="True">
+
+            <custom:TextBox Text="{Binding Name, Mode=TwoWay}"
+                    Placeholder="{trans:Translate EnterName}" Margin="15, 15"
+                    TextChanged="TextBox_TextChanged"
+                    />
+
+            <Button Text="{trans:Translate NextText}"
+                    d:Text="Next" StyleClass="NextBtn"
+                    Command="{Binding NextCommand}" >
+            </Button>
+
+        </FlexLayout>
+
+    </Grid>
+</ContentPage>

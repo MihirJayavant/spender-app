@@ -11,14 +11,13 @@ namespace Infrastructure.Database.Entities
         public DateTime TransactionDate { get; set; }
         public string Category { get; set; }
         
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public int DivisionId { get; set; }
+        public Division Division { get; set; }
 
         public core.Transaction GetCore()
             => new core.Transaction
             (
-                id: Id, userId: UserId, title: Title, 
-                amount: Amount, category: null, date: TransactionDate
+                id: Id, title: Title, amount: Amount, date: TransactionDate
             );
     }
 }

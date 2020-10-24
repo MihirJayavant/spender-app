@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:Spender.CustomControls"
+             x:Class="Spender.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#03A9F4</Color>
+            <Color x:Key="PrimaryDark">#0288D1</Color>
+            <Color x:Key="NavigationPrimary">#03A9F4</Color>
+            <Color x:Key="Accent">#FF4081</Color>
+            <Color x:Key="AccentDark">#E91E63</Color>
+
+            <Color x:Key="Red500">#F44336</Color>
+            <Color x:Key="Red700">#D32F2F</Color>
+            <Color x:Key="Transulent">#95FFFFFF</Color>
+
+            <LinearGradientBrush x:Key="GradientLight" StartPoint="0,1" EndPoint="0,0">
+                <GradientStop Color="#fbc2eb" Offset="0.1"/>
+                <GradientStop Color="#a6c1ee" Offset="1.0"/>
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="GradientDark" StartPoint="0,1" EndPoint="0,0">
+                <GradientStop Color="#ec77ab" Offset="0.1"/>
+                <GradientStop Color="#7873f5" Offset="1.0"/>
+            </LinearGradientBrush>
+
+            <Style x:Key="GradientBg"  TargetType="ContentPage">
+                <Setter Property="Background" 
+                        Value="{AppThemeBinding Light={StaticResource GradientLight}, Dark={StaticResource GradientDark} }"                         
+                        />
+            </Style>
+
+            <Style TargetType="custom:DropDown">
+                <Setter Property="TitleColor" Value="Black"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+
+            <Style TargetType="custom:TextBox">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="PlaceholderColor" Value="Black"/>
+            </Style>
+
+            <Style Class="NextBtn" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Red500}"/>
+                <Setter Property="Margin" Value="15"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="Body"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>

@@ -1,4 +1,5 @@
-﻿using u = Core.Transactional;
+﻿using System.Collections.Generic;
+using u = Core.Transactional;
 
 namespace Infrastructure.Database.Entities
 {
@@ -6,6 +7,7 @@ namespace Infrastructure.Database.Entities
     {
         public string Name { get; set; }
         public bool IsDefault { get; set; }
+        public List<Division> Divisions { get; set; }
 
         public u.User ToCore()
             => new u.User(id: Id, name: Name, isDefault: IsDefault, 

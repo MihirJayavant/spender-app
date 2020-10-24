@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:Spender.CustomControls"
+             xmlns:vm="clr-namespace:Spender.ViewModels"
+             xmlns:trans="clr-namespace:Spender.Localization"
+             mc:Ignorable="d"
+             x:Class="Spender.Views.LanguagePage"
+             Visual="Material"
+             Shell.NavBarIsVisible="False"
+             Background="{StaticResource GradientLight}"
+             x:DataType="{x:Type vm:LanguagePageViewModel}"
+             >
+    <ContentPage.Content>
+        <ContentView Padding="15">
+            <Grid RowDefinitions="100, 100, *, 100" ColumnDefinitions="*"
+                  CompressedLayout.IsHeadless="True">
+
+                <Label 
+                    Text="{trans:Translate LangPageHeading}" 
+                    Margin="15" HorizontalOptions="Center"
+                    FontSize="Title" TextColor="DarkViolet" />
+
+                <Label Grid.Row="1"
+                    Text="{trans:Translate LangPageTitle}" 
+                    HorizontalTextAlignment="Center"
+                    Margin="15" HorizontalOptions="Center"
+                    FontSize="Title" TextColor="Black" />
+
+                <StackLayout VerticalOptions="Center" 
+                             CompressedLayout.IsHeadless="True"
+                             Grid.Row="2" Spacing="30">
+                    
+                    <custom:DropDown
+                        Title="Select Language"
+                        HorizontalTextAlignment="Center"
+                        SelectedIndexChanged="LangChanged"
+                        SelectedIndex="{Binding SelectedLanguageIndex}"
+                        ItemsSource="{Binding LanguageList, Mode=OneTime}" 
+                        ItemDisplayBinding="{Binding DisplayName, Mode=OneTime}"/>
+
+                    <custom:DropDown
+                        Title="{trans:Translate SelectCountry}"
+                        HorizontalTextAlignment="Center"
+                        SelectedIndexChanged="CountryChanged"
+                        SelectedIndex="{Binding SelectedCountryIndex}"
+                        ItemsSource="{Binding CountryList, Mode=OneTime}" 
+                        ItemDisplayBinding="{Binding Display, Mode=OneTime}"/>
+
+                </StackLayout>
+                
+                
+                <Button Grid.Row="3" VerticalOptions="Center"
+                    Text="{trans:Translate NextText}"  
+                    d:Text="Next" StyleClass="NextBtn"
+                    Command="{Binding NextCommand}" />
+            </Grid>
+
+            
+            
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>
