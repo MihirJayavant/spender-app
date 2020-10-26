@@ -20,7 +20,7 @@ namespace Infrastructure.Services.InMemory
             
         }
 
-        public bool IsUserCreated => users.Count > 0;
+        public bool IsUserCreated => false;
         public User User { get; set; }
 
         public async Task<AsyncData<User>> Add(string name)

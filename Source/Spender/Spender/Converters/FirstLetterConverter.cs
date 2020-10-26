@@ -11,7 +11,7 @@ namespace Spender.Converters
             {
                 null => "A",
                 string s when s.Length == 0 => "A",
-                string s => char.ToUpper(s[0]),
+                string s => GetFirstLetter(s),
                 _ => "A"
             };
 
@@ -23,6 +23,8 @@ namespace Spender.Converters
                 string s => s,
                 _ => string.Empty
             };
+
+        public string GetFirstLetter(string s) => StringInfo.GetNextTextElement(s).ToUpperInvariant();
 
     }
 }

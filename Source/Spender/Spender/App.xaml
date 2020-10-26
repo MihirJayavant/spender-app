@@ -44,7 +44,7 @@
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="PlaceholderColor" Value="Black"/>
+                <Setter Property="PlaceholderColor" Value="#444"/>
             </Style>
 
             <Style Class="NextBtn" TargetType="Button">

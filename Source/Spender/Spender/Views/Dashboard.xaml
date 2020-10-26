@@ -34,8 +34,7 @@
                 JustifyContent="Center" AlignItems="Center">
 
                 <toolkit:AvatarView Size="50" Color="#B3E5FC" 
-                                    TextColor="Black" Text="M"
-                                    />
+                                    TextColor="Black" Text="M" />
 
                 <Label Text="Mihir" FontSize="25" TextColor="Black"
                        VerticalOptions="Center" Margin="20"/>
