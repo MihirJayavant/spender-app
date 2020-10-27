@@ -19,9 +19,9 @@ namespace Spender.ViewModels
             await startup.EnsureCreation();
 
             if (user.IsUserCreated)
-                await navigation.GotoAsync("//dashboard");
+                await navigation.GotoAsync("/dashboard");
             else
-                await navigation.GotoAsync("//login");
+                await navigation.GotoAsync("/login");
         }
     }
 }

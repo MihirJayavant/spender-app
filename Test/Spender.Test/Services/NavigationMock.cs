@@ -1,5 +1,6 @@
 ﻿using Moq;
 using Spender.Services;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Spender.Test.Services
