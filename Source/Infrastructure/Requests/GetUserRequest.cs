@@ -22,11 +22,16 @@ namespace Infrastructure.Requests
             try
             {
                 using var db = new ApplicationContext(option);
-                User result = id switch
+                User result = null;
+
+                if(id is int userId)
                 {
-                    int userId => await db.Users.FirstAsync(p => p.Id == userId),
-                    null => await db.Users.FirstAsync(p => p.IsDefault == true)
-                };
+                    result = await db.Users.FirstAsync(p => p.Id == userId);
+                }
+                else
+                {
+                    result = await db.Users.FirstAsync(p => p.IsDefault == true);
+                }
 
                 return AsyncData<u.User>.Loaded(result.ToCore());
             }

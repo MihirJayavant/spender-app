@@ -18,15 +18,17 @@ namespace Infrastructure.Database
 
         public async Task EnsureDbAsync()
         {
-            await Database.MigrateAsync();
+            await Database.EnsureCreatedAsync();
         }
 
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Division> Divisions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new DivisionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         }
 

@@ -5,28 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:converter="clr-namespace:Spender.Converters"
              xmlns:toolkit="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             xmlns:model="clr-namespace:Core.Transactional;assembly=Core"
              mc:Ignorable="d"
              x:Class="Spender.Views.Dashboard"
              Shell.NavBarIsVisible="False"
              Title="Dashboard"
              >
 
-    <CollectionView BackgroundColor="AliceBlue">
+    <CollectionView BackgroundColor="AliceBlue" 
+                    ItemsSource="{Binding DivisionList, Mode=OneTime}" >
 
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical" Span="4" />
         </CollectionView.ItemsLayout>
-
-        <CollectionView.ItemsSource>
-            <x:Array Type="{x:Type x:String}">
-                <x:String>Netflix</x:String>
-                <x:String>Hotstar</x:String>
-                <x:String>Movies</x:String>
-                <x:String>Spotify</x:String>
-                <x:String>Xbox game pass</x:String>
-                <x:String>Others</x:String>
-            </x:Array>
-        </CollectionView.ItemsSource>
 
         <CollectionView.Header>
             <FlexLayout CompressedLayout.IsHeadless="True"
@@ -36,7 +27,7 @@
                 <toolkit:AvatarView Size="50" Color="#B3E5FC" 
                                     TextColor="Black" Text="M" />
 
-                <Label Text="Mihir" FontSize="25" TextColor="Black"
+                <Label Text="{Binding User.Name}" FontSize="25" TextColor="Black"
                        VerticalOptions="Center" Margin="20"/>
                
 
@@ -44,14 +35,14 @@
         </CollectionView.Header>
 
         <CollectionView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="model:Division">
                 <FlexLayout Direction="Column" JustifyContent="Center" AlignItems="Center"
                       CompressedLayout.IsHeadless="True" Padding="10">
                     <toolkit:AvatarView Size="50" Color="Red" 
                                     TextColor="White"
                                     Text="N" />
                     <Label
-                           Text="{Binding .}" HorizontalOptions="Center"
+                           Text="{Binding Title, Mode=OneTime}"
                            FontSize="Body" TextColor="Black"
                            HorizontalTextAlignment="Center"
                            />

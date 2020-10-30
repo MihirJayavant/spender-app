@@ -12,6 +12,8 @@ namespace Core.Transactional
         string Name { get; }
     }
 
+
+
     public sealed class Category : ICategory
     {
         public string Name { get; }

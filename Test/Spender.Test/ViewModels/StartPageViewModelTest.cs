@@ -44,7 +44,7 @@ namespace Spender.Test.ViewModels
 
             await vm.OnStart();
 
-            nav.Verify(s => s.GotoAsync("/dashboard"), Times.Once);
+            nav.Verify(s => s.GotoAsync("//dashboard"), Times.Once);
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace Spender.Test.ViewModels
 
             await vm.OnStart();
 
-            nav.Verify(s => s.GotoAsync("/login"), Times.Once);
+            nav.Verify(s => s.GotoAsync("//login"), Times.Once);
         }
 
     }

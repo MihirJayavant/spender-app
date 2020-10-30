@@ -9,6 +9,10 @@ namespace Infrastructure.Database.Configurations
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
             builder.HasKey(prop => prop.Id);
+
+            builder.HasOne(prop => prop.Division)
+                .WithMany(prop => prop.Transactions)
+                .HasForeignKey(prop => prop.DivisionId);
         }
     }
 }

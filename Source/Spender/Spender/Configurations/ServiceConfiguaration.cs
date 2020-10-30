@@ -33,11 +33,13 @@ namespace Spender.Configurations
             {
                 container.RegisterSingleton<IUserService, UserService>();
                 container.Register<IStartupService, StartupService>();
+                container.Register<IDivisionService, DivisionService>();
             }
             else
             {
                 container.RegisterSingleton<IUserService, mem.UserService>();
                 container.Register<IStartupService, mem.StartupService>();
+                container.Register<IDivisionService, mem.DivisionService>();
             }
 
             container.RegisterSingleton<ISettings, DevSettings>();
