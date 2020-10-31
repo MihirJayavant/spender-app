@@ -2,9 +2,10 @@
 using Core.Services;
 using Core.Transactional;
 using Prism.Mvvm;
-using System;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using Spender.Services;
+using Prism.Commands;
 
 namespace Spender.ViewModels
 {
@@ -12,6 +13,9 @@ namespace Spender.ViewModels
     {
         readonly IUserService userService;
         readonly IDivisionService divisionService;
+        readonly INavigation navigation;
+
+        public DelegateCommand GoToTransactionCommand { get; }
 
         private User user;
         public User User
@@ -20,10 +24,12 @@ namespace Spender.ViewModels
             set => SetProperty(ref user, value);
         }
 
-        public DashboardViewModel(IUserService userService, IDivisionService divisionService)
+        public DashboardViewModel(IUserService userService, IDivisionService divisionService, INavigation navigation)
         {
             this.userService = userService;
             this.divisionService = divisionService;
+            this.navigation = navigation;
+            GoToTransactionCommand = new DelegateCommand(GoToTransaction);
         }
 
         public ObservableCollection<Division> DivisionList { get; set; } = new ObservableCollection<Division>();
@@ -49,6 +55,11 @@ namespace Spender.ViewModels
                 }
             }
 
+        }
+
+        public async void GoToTransaction()
+        {
+            await navigation.GotoAsync("tansaction");
         }
     }
 }

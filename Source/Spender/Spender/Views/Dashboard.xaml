@@ -12,7 +12,7 @@
              Title="Dashboard"
              >
 
-    <CollectionView BackgroundColor="AliceBlue" 
+    <CollectionView BackgroundColor="AliceBlue"
                     ItemsSource="{Binding DivisionList, Mode=OneTime}" >
 
         <CollectionView.ItemsLayout>
@@ -29,7 +29,6 @@
 
                 <Label Text="{Binding User.Name}" FontSize="25" TextColor="Black"
                        VerticalOptions="Center" Margin="20"/>
-               
 
             </FlexLayout>
         </CollectionView.Header>
@@ -38,14 +37,22 @@
             <DataTemplate x:DataType="model:Division">
                 <FlexLayout Direction="Column" JustifyContent="Center" AlignItems="Center"
                       CompressedLayout.IsHeadless="True" Padding="10">
+                    
                     <toolkit:AvatarView Size="50" Color="Red" 
                                     TextColor="White"
                                     Text="N" />
+
                     <Label
                            Text="{Binding Title, Mode=OneTime}"
                            FontSize="Body" TextColor="Black"
                            HorizontalTextAlignment="Center"
                            />
+
+                    <FlexLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:DataType="{x:Null}" NumberOfTapsRequired="1"
+                            Tapped="TapGestureRecognizer_Tapped" />
+                    </FlexLayout.GestureRecognizers>
+                    
                 </FlexLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>

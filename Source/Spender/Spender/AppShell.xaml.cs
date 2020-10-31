@@ -16,6 +16,7 @@ namespace Spender
             AppContainer.Instance.AddViewModels();
 
             Routing.RegisterRoute("addUser", typeof(AddUserPage));
+            Routing.RegisterRoute("transaction", typeof(TransactionPage));
 
             var currentLang = AppContainer.Instance.Resolve<ILocalizationService>();
             var culture = new CultureInfo(currentLang.GetLanguage());

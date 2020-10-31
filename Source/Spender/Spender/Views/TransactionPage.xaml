@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:Spender.CustomControls"
+             mc:Ignorable="d"
+             x:Class="Spender.Views.TransactionPage"
+             BackgroundColor="#F5F5F5"
+             Title="Division"
+             >
+
+    <Grid RowDefinitions="*, 80" ColumnDefinitions="*" CompressedLayout.IsHeadless="True">
+
+        <CollectionView BackgroundColor="#F5F5F5">
+
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>3000</x:String>
+                    <x:String>152</x:String>
+                    <x:String>550</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView CompressedLayout.IsHeadless="True" Padding="10">
+                        <Frame CornerRadius="5" BackgroundColor="#B3E5FC"
+                               Margin="10, 0" HorizontalOptions="End" >
+                            <Label Text="{Binding .}" 
+                                   FontSize="30"
+                                   TextColor="Black" />
+                        </Frame>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+
+        <FlexLayout Grid.Row="1" CompressedLayout.IsHeadless="True"
+                    AlignItems="Center">
+            
+            <custom:TextBox Placeholder="Enter" BorderRadius="5" 
+                            FlexLayout.Grow="1" Margin="5"
+                            PlaceholderColor="#9E9E9E"
+                            />
+            <Button Text="➤" WidthRequest="50" HeightRequest="50"
+                    FontFamily="material" TextColor="White"
+                    BackgroundColor="{StaticResource Primary}" CornerRadius="5"
+                    Margin="5" FontSize="25" />
+        </FlexLayout>
+
+    </Grid>
+    
+</ContentPage>

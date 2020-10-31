@@ -18,7 +18,13 @@ namespace Spender.Views
 
         protected override async void OnAppearing()
         {
-            await vm.SetUser();
+            if(vm.User == null)
+                await vm.SetUser();
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
+        {
+            await Shell.Current.GoToAsync("transaction");
         }
     }
 }

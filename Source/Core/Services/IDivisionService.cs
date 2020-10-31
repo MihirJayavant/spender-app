@@ -7,7 +7,7 @@ namespace Core.Services
 {
     public interface IDivisionService
     {
-        Task<AsyncData<Division>> Add(Division receiver, int userId);
+        Task<AsyncData<Division>> Add(Division division, int userId);
         Task<AsyncData<IList<Division>>> Get(int userId);
     }
 }

@@ -15,12 +15,12 @@ namespace Infrastructure.Services.InMemory
         {
             for(int i = 1; i <= 5; i++)
             {
-                users.Add(new User(i, $"name {i}", i == 1 , DateTime.Now));
+                users.Add(new User(i, $"Mihir {i}", i == 1 , DateTime.Now));
             }
             
         }
 
-        public bool IsUserCreated => false;
+        public bool IsUserCreated => true;
         public User User { get; set; }
 
         public async Task<AsyncData<User>> Add(string name)
