@@ -8,6 +8,6 @@ namespace Core.Services
     public interface IDivisionService
     {
         Task<AsyncData<Division>> Add(Division division, int userId);
-        Task<AsyncData<IList<Division>>> Get(int userId);
+        Task<AsyncData<Paginated<IList<Division>>>> Get(int userId);
     }
 }

@@ -49,7 +49,7 @@ namespace Spender.ViewModels
             var result = await divisionService.Get(userId);
             if (result.IsLoaded)
             {
-                foreach (var item in result.Data)
+                foreach (var item in result.Data.Data)
                 {
                     DivisionList.Add(item);
                 }
@@ -59,7 +59,7 @@ namespace Spender.ViewModels
 
         public async void GoToTransaction()
         {
-            await navigation.GotoAsync("tansaction");
+            await navigation.GotoAsync("transaction");
         }
     }
 }

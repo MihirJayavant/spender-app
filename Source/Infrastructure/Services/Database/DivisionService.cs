@@ -18,7 +18,9 @@ namespace Infrastructure.Services.Database
         public async Task<AsyncData<Division>> Add(Division receiver, int userId) 
             => await new AddDivisionRequest(userId, receiver, options).RunAsync();
 
-        public async Task<AsyncData<IList<Division>>> Get(int userId)
-            => await new GetDivisionRequest(userId, options).RunAsync();
+        public async Task<AsyncData<Paginated<IList<Division>>>> Get(int userId)
+            => await new GetDivisionRequest(new Paginated<int>(userId, 50, 0), options)
+                    .RunAsync();
+
     }
 }

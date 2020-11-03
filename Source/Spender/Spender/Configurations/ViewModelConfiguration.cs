@@ -10,6 +10,7 @@ namespace Spender.Configurations
             container.Register<AddUserPageViewModel>();
             container.Register<DashboardViewModel>();
             container.Register<StartPageViewModel>();
+            container.Register<TransactionPageViewModel>();
         }
 
     }

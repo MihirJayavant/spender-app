@@ -12,22 +12,24 @@
 
     <Grid RowDefinitions="*, 80" ColumnDefinitions="*" CompressedLayout.IsHeadless="True">
 
-        <CollectionView BackgroundColor="#F5F5F5">
+        <CollectionView BackgroundColor="#F5F5F5"
+                        ItemsSource="{Binding TransactionList}">
 
-            <CollectionView.ItemsSource>
+            <d:CollectionView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>3000</x:String>
                     <x:String>152</x:String>
                     <x:String>550</x:String>
                 </x:Array>
-            </CollectionView.ItemsSource>
+            </d:CollectionView.ItemsSource>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <ContentView CompressedLayout.IsHeadless="True" Padding="10">
                         <Frame CornerRadius="5" BackgroundColor="#B3E5FC"
                                Margin="10, 0" HorizontalOptions="End" >
-                            <Label Text="{Binding .}" 
+                            <Label d:Text="{Binding .}" 
+                                   Text="{Binding Amount, Mode=OneTime}"
                                    FontSize="30"
                                    TextColor="Black" />
                         </Frame>
@@ -40,14 +42,17 @@
         <FlexLayout Grid.Row="1" CompressedLayout.IsHeadless="True"
                     AlignItems="Center">
             
-            <custom:TextBox Placeholder="Enter" BorderRadius="5" 
+            <custom:TextBox Placeholder="Enter Amount" BorderRadius="5" 
                             FlexLayout.Grow="1" Margin="5"
                             PlaceholderColor="#9E9E9E"
+                            Keyboard="Numeric" MaxLength="8"
+                            Text="{Binding AmountEntry}"
                             />
             <Button Text="➤" WidthRequest="50" HeightRequest="50"
                     FontFamily="material" TextColor="White"
                     BackgroundColor="{StaticResource Primary}" CornerRadius="5"
-                    Margin="5" FontSize="25" />
+                    Margin="5" FontSize="25" 
+                    Command="{Binding AddCommand, Mode=OneTime}"/>
         </FlexLayout>
 
     </Grid>

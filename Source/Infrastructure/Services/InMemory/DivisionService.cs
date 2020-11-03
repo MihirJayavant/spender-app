@@ -28,7 +28,9 @@ namespace Infrastructure.Services.InMemory
             return Task.FromResult(AsyncData<Division>.Loaded(division));
         }
 
-        public Task<AsyncData<IList<Division>>> Get(int userId) 
-            => Task.FromResult(AsyncData<IList<Division>>.Loaded(divisions));
+        Task<AsyncData<Paginated<IList<Division>>>> IDivisionService.Get(int userId)
+            => Task.FromResult(AsyncData<Paginated<IList<Division>>>
+                .Loaded(new Paginated<IList<Division>>(divisions, 10, 0)));
+        
     }
 }
