@@ -6,6 +6,7 @@ namespace Core.Services
 {
     public interface ITransactionService
     {
-        Task<AsyncData<Transaction>> Add(Transaction transaction);
+        Task<AsyncData<Transaction>> Add(int divisionId, Transaction transaction);
+        Task<AsyncData<PaginatedResult<Transaction>>> GetAll(int divisionId, int limit, int offest);
     }
 }

@@ -13,7 +13,9 @@
     <Grid RowDefinitions="*, 80" ColumnDefinitions="*" CompressedLayout.IsHeadless="True">
 
         <CollectionView BackgroundColor="#F5F5F5"
-                        ItemsSource="{Binding TransactionList}">
+                        ItemsSource="{Binding TransactionList}"
+                        ItemsUpdatingScrollMode="KeepLastItemInView"
+                        SelectionMode="None">
 
             <d:CollectionView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">

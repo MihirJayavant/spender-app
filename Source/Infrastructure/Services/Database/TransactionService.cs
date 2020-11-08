@@ -12,8 +12,11 @@ namespace Infrastructure.Services.Database
         readonly IDbOption options;
         public TransactionService(IDbOption option) => options = option;
 
-        public Task<AsyncData<Transaction>> Add(Transaction transaction)
-            => new AddTransactionRequest(1, transaction, options).RunAsync();
-        
+        public Task<AsyncData<Transaction>> Add(int divisionId,Transaction transaction)
+            => new AddTransactionRequest(divisionId, transaction, options).RunAsync();
+
+        public async Task<AsyncData<PaginatedResult<Transaction>>> GetAll(int divisionId, int limit, int offest)
+            => await new GetTransactionRequest(new Paginated<int>(divisionId, limit, offest), options)
+                            .RunAsync();
     }
 }

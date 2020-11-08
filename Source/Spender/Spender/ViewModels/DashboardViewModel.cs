@@ -15,7 +15,7 @@ namespace Spender.ViewModels
         readonly IDivisionService divisionService;
         readonly INavigation navigation;
 
-        public DelegateCommand GoToTransactionCommand { get; }
+        public DelegateCommand<Division> GoToTransactionCommand { get; }
 
         private User user;
         public User User
@@ -29,7 +29,7 @@ namespace Spender.ViewModels
             this.userService = userService;
             this.divisionService = divisionService;
             this.navigation = navigation;
-            GoToTransactionCommand = new DelegateCommand(GoToTransaction);
+            GoToTransactionCommand = new DelegateCommand<Division>(GoToTransaction);
         }
 
         public ObservableCollection<Division> DivisionList { get; set; } = new ObservableCollection<Division>();
@@ -57,9 +57,9 @@ namespace Spender.ViewModels
 
         }
 
-        public async void GoToTransaction()
+        public async void GoToTransaction(Division division)
         {
-            await navigation.GotoAsync("transaction");
+            await navigation.GotoAsync($"transaction?divisionId={division.Id}");
         }
     }
 }

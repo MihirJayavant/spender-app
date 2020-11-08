@@ -6,13 +6,12 @@ using System;
 using Infrastructure.Essentials;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 
 namespace Infrastructure.Requests
 {
 
-    public class GetTransactionRequest : IAyncRequest<Paginated<IList<t.Transaction>>>
+    public class GetTransactionRequest : IAyncRequest<PaginatedResult<t.Transaction>>
     {
         readonly Paginated<int> payload;
         readonly IDbOption option;
@@ -20,7 +19,7 @@ namespace Infrastructure.Requests
         public GetTransactionRequest(Paginated<int> payload, IDbOption option)
             => (this.payload, this.option) = (payload, option);
 
-        public async Task<AsyncData<Paginated<IList<t.Transaction>>>> RunAsync()
+        public async Task<AsyncData<PaginatedResult<t.Transaction>>> RunAsync()
         {
             try
             {
@@ -31,13 +30,13 @@ namespace Infrastructure.Requests
                                 .Take(payload.Limit)
                                 .Select(d => d.ToCore())
                                 .ToListAsync();
-                return AsyncData<Paginated<IList<t.Transaction>>>.Loaded(
-                    new Paginated<IList<t.Transaction>>(result, payload.Limit, payload.Offset)
+                return AsyncData<PaginatedResult<t.Transaction>>.Loaded(
+                    new PaginatedResult<t.Transaction>(result, payload.Limit, payload.Offset)
                     );
             }
             catch (Exception e)
             {
-                return AsyncData<Paginated<IList<t.Transaction>>>.ErrorMessage(e.Message);
+                return AsyncData<PaginatedResult<t.Transaction>>.ErrorMessage(e.Message);
             }
         }
 

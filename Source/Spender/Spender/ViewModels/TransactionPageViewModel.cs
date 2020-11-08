@@ -2,14 +2,14 @@
 using Core.Services;
 using Core.Transactional;
 using Prism.Mvvm;
-using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using Spender.Services;
 using Prism.Commands;
 using System;
+using System.Threading.Tasks;
 
 namespace Spender.ViewModels
 {
+    
     public class TransactionPageViewModel : BindableBase
     {
         public ObservableCollection<Transaction> TransactionList { get; } = new ObservableCollection<Transaction>();
@@ -24,6 +24,7 @@ namespace Spender.ViewModels
 
         public DelegateCommand AddCommand { get; }
         readonly ITransactionService transactionService;
+        private int id = 0;
 
         public TransactionPageViewModel(ITransactionService transactionService)
         {
@@ -31,16 +32,27 @@ namespace Spender.ViewModels
             AddCommand = new DelegateCommand(AddTrans);
         }
 
+        public async Task SetId(int id)
+        {
+            this.id = id;
+            var result = await transactionService.GetAll(id, 50, 0);
+            if(result.IsLoaded)
+            {
+                foreach (var item in result.Data.Data)
+                {
+                    TransactionList.Add(item);
+                }
+            }
+        }
+
         async void AddTrans()
         {
-            int amount;
-            int.TryParse(amountEntry, out amount);
+            int.TryParse(amountEntry, out int amount);
             AmountEntry = null;
             if(amount != 0)
             {
-                var result = await transactionService.Add(
-                    new Transaction(0, "", amount, DateTime.Now)
-                    );
+                var trans = new Transaction(0, "", amount, DateTime.Now);
+                var result = await transactionService.Add(id, trans);
 
                 if(result.IsLoaded)
                 {
@@ -48,8 +60,6 @@ namespace Spender.ViewModels
                 }
             }
         }
-
-
 
     }
 }

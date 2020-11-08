@@ -6,6 +6,7 @@ using Core.Transactional;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 
 namespace Infrastructure.Services.InMemory
@@ -19,10 +20,20 @@ namespace Infrastructure.Services.InMemory
         {
         }
 
-        public Task<AsyncData<Transaction>> Add(Transaction transaction)
+        public Task<AsyncData<Transaction>> Add(int divisionId, Transaction transaction)
         {
             transactions.Add(transaction);
             return Task.FromResult(AsyncData<Transaction>.Loaded(transaction));
+        }
+
+        public Task<AsyncData<PaginatedResult<Transaction>>> GetAll(int divisionId, int limit, int offest)
+        {
+            var result = transactions.Take(limit)
+                                    .Skip(offest)
+                                    .ToList();
+            return Task.FromResult(new AsyncData<PaginatedResult<Transaction>>(
+                new PaginatedResult<Transaction>(result, limit, offest)
+                ));
         }
     }
 }

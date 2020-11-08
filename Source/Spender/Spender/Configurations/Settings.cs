@@ -12,8 +12,8 @@ namespace Spender.Configurations
     public class DevSettings : ISettings
     {
         public bool IsLocalDev => true;
-        public bool UseDatabase => false;
-        public bool UseEssentials => false;
+        public bool UseDatabase => true;
+        public bool UseEssentials => true;
     }
 
     public class ProdSettings : ISettings
