@@ -19,9 +19,9 @@
 
             <d:CollectionView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
-                    <x:String>3000</x:String>
-                    <x:String>152</x:String>
-                    <x:String>550</x:String>
+                    <x:String>$3,000</x:String>
+                    <x:String>$152</x:String>
+                    <x:String>$550</x:String>
                 </x:Array>
             </d:CollectionView.ItemsSource>
 
@@ -29,11 +29,16 @@
                 <DataTemplate>
                     <ContentView CompressedLayout.IsHeadless="True" Padding="10">
                         <Frame CornerRadius="5" BackgroundColor="#B3E5FC"
-                               Margin="10, 0" HorizontalOptions="End" >
-                            <Label d:Text="{Binding .}" 
-                                   Text="{Binding Amount, Mode=OneTime}"
-                                   FontSize="30"
-                                   TextColor="Black" />
+                             Margin="10, 0" HorizontalOptions="End" >
+                            <StackLayout>
+                                <Label d:Text="{Binding .}" 
+                                       Text="{Binding DisplayAmount, Mode=OneTime}"
+                                       FontSize="30"
+                                       TextColor="Black" />
+                                <Label d:Text="13 Nov, 11:23 AM"
+                                       Text="{Binding DisplayDate}"
+                                       FontSize="Subtitle"/>
+                            </StackLayout>
                         </Frame>
                     </ContentView>
                 </DataTemplate>

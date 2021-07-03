@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "path": "Spender.sln",
+    "projects": [
+      "Source\\Core\\Core.csproj",
+      "Source\\Infrastructure\\Infrastructure.csproj",
+      "Source\\Spender\\Spender.Android\\Spender.Android.csproj",
+      "Source\\Spender\\Spender\\Spender.csproj"
+    ]
+  }
+}
