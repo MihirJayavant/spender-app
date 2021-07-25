@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:custom="clr-namespace:Spender.CustomControls"
-             xmlns:converter="clr-namespace:Spender.Converters"
-             xmlns:trans="clr-namespace:Spender.Localization"
-             xmlns:toolkit="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             xmlns:converter="clr-namespace:Spender.Converters" 
+             xmlns:vm="clr-namespace:Spender.ViewModels" 
+             x:DataType="vm:AddUserPageViewModel"
              mc:Ignorable="d"
              x:Class="Spender.Views.AddUserPage"
              Visual="Material"
@@ -24,7 +25,7 @@
 
         <ContentView CompressedLayout.IsHeadless="True">
             
-            <toolkit:AvatarView Size="80" VerticalOptions="Center" HorizontalOptions="Center"
+            <xct:AvatarView Size="80" VerticalOptions="Center" HorizontalOptions="Center"
                 TextColor="Black" Color="#B3E5FC" 
                 Text="{Binding Name, Mode=OneWay, Converter={StaticResource initialsOnly}}"
                 FontSize="40" />
@@ -34,11 +35,11 @@
 
 
         <custom:TextBox Text="{Binding Name, Mode=TwoWay}"
-                    Placeholder="{trans:Translate EnterName}" Margin="15, 15"
+                    Placeholder="{xct:Translate EnterName}" Margin="15, 15"
                     TextChanged="TextBox_TextChanged"
                     />
 
-        <Button Text="{trans:Translate NextText}"
+        <Button Text="{xct:Translate NextText}"
                     d:Text="Next" StyleClass="NextBtn"
                     Command="{Binding NextCommand}" />
 

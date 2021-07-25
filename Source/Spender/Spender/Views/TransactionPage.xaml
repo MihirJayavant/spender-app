@@ -37,7 +37,7 @@
                                        TextColor="Black" />
                                 <Label d:Text="13 Nov, 11:23 AM"
                                        Text="{Binding DisplayDate}"
-                                       FontSize="Subtitle"/>
+                                       FontSize="Micro" TextColor="Gray"/>
                             </StackLayout>
                         </Frame>
                     </ContentView>
@@ -53,12 +53,12 @@
                             FlexLayout.Grow="1" Margin="5"
                             PlaceholderColor="#9E9E9E"
                             Keyboard="Numeric" MaxLength="8"
-                            Text="{Binding AmountEntry}"
-                            />
+                            Text="{Binding AmountEntry}" />
+            
             <Button Text="➤" WidthRequest="50" HeightRequest="50"
                     FontFamily="material" TextColor="White"
                     BackgroundColor="{StaticResource Primary}" CornerRadius="5"
-                    Margin="5" FontSize="25" 
+                    Margin="5" FontSize="25"
                     Command="{Binding AddCommand, Mode=OneTime}"/>
         </FlexLayout>
 

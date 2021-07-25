@@ -2,7 +2,6 @@
 using Infrastructure.Essentials;
 using Infrastructure.Services.Database;
 using Prism.Events;
-using Spender.Localization;
 using Spender.Services;
 
 using mem = Infrastructure.Services.InMemory;
@@ -47,7 +46,6 @@ namespace Spender.Configurations
             container.RegisterSingleton<ISettings, DevSettings>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
             container.RegisterSingleton<IDbOption, DbOptions>();
-            container.RegisterSingleton<LocalizationResourceManager>();
 
             container.Register<ILocalizationService, LocalizationService>();
             container.Register<INavigation, Navigation>();
@@ -58,7 +56,6 @@ namespace Spender.Configurations
             container.RegisterSingleton<ISettings, ProdSettings>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
             container.RegisterSingleton<IUserService, UserService>();
-            container.RegisterSingleton<LocalizationResourceManager>();
 
             container.Register<ILocalStorage, LocalStorage>();
             container.Register<ILocalizationService, LocalizationService>();

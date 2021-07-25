@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using Spender.Resx;
+using Xamarin.CommunityToolkit.Helpers;
+using Xamarin.Forms;
 
 namespace Spender
 {
@@ -9,6 +11,9 @@ namespace Spender
         {
             InitializeComponent();
             MainPage = new AppShell();
+            LocalizationResourceManager.Current.PropertyChanged += 
+                (_, __) => AppResources.Culture = LocalizationResourceManager.Current.CurrentCulture;
+            LocalizationResourceManager.Current.Init(AppResources.ResourceManager);
         }
 
         protected override void OnStart()

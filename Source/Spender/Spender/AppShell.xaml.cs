@@ -2,8 +2,8 @@
 using Spender.Configurations;
 using Spender.Services;
 using System.Globalization;
-using Spender.Localization;
 using Spender.Views;
+using Xamarin.CommunityToolkit.Helpers;
 
 namespace Spender
 {
@@ -20,8 +20,7 @@ namespace Spender
 
             var currentLang = AppContainer.Instance.Resolve<ILocalizationService>();
             var culture = new CultureInfo(currentLang.GetLanguage());
-            var manager = AppContainer.Instance.Resolve<LocalizationResourceManager>();
-            manager.SetCulture(culture);
+            LocalizationResourceManager.Current.CurrentCulture = culture;
         }
 
     }

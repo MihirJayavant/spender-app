@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
-             xmlns:effect="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:model="clr-namespace:Core.Transactional;assembly=Core"
-             xmlns:vm="clr-namespace:Spender.ViewModels"
+             xmlns:vm="clr-namespace:Spender.ViewModels" 
+             x:DataType="vm:DashboardViewModel"
              mc:Ignorable="d"
              x:Class="Spender.Views.Dashboard"
              Shell.NavBarIsVisible="False"
@@ -39,8 +39,8 @@
             <DataTemplate x:DataType="model:Division">
                 <FlexLayout Direction="Column" JustifyContent="Center" AlignItems="Center"
                       CompressedLayout.IsHeadless="True" Padding="10"
-                      effect:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DashboardViewModel}}, Path=GoToTransactionCommand}" 
-                      effect:TouchEffect.CommandParameter="{Binding .}" effect:TouchEffect.NativeAnimation="True"
+                      xct:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DashboardViewModel}}, Path=GoToTransactionCommand}" 
+                      xct:TouchEffect.CommandParameter="{Binding .}" xct:TouchEffect.NativeAnimation="True"
                 >
                     
                     <xct:AvatarView Size="50" Color="Red" 

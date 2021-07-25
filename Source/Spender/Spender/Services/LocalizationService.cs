@@ -1,8 +1,6 @@
-﻿
-
-using Core.Services;
-using Spender.Localization;
+﻿using Core.Services;
 using System.Globalization;
+using Xamarin.CommunityToolkit.Helpers;
 
 namespace Spender.Services
 {
@@ -18,15 +16,14 @@ namespace Spender.Services
     public class LocalizationService : ILocalizationService
     {
         readonly ILocalStorage localStorage;
-        readonly LocalizationResourceManager manager;
-        public LocalizationService(ILocalStorage localStorage, LocalizationResourceManager manager)
-            => (this.localStorage, this.manager) = (localStorage, manager);
+        public LocalizationService(ILocalStorage localStorage)
+            => this.localStorage = localStorage;
 
         public void SetLanguage(string code)
         {
             localStorage.Set("language", code);
             var culture = new CultureInfo(code);
-            manager.SetCulture(culture);
+            LocalizationResourceManager.Current.CurrentCulture = culture;
         }
 
         public void SetCurrency(string cultureCode) => localStorage.Set("currency", cultureCode);
