@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:converter="clr-namespace:Spender.Converters"
-             xmlns:toolkit="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             xmlns:effect="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
              xmlns:model="clr-namespace:Core.Transactional;assembly=Core"
              xmlns:vm="clr-namespace:Spender.ViewModels"
              mc:Ignorable="d"
@@ -26,7 +26,7 @@
                 HeightRequest="250" BackgroundColor="White" 
                 JustifyContent="Center" AlignItems="Center">
 
-                <toolkit:AvatarView Size="50" Color="#B3E5FC" 
+                <xct:AvatarView Size="50" Color="#B3E5FC" 
                                     TextColor="Black" Text="M" />
 
                 <Label Text="{Binding User.Name}" FontSize="25" TextColor="Black"
@@ -38,9 +38,12 @@
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Division">
                 <FlexLayout Direction="Column" JustifyContent="Center" AlignItems="Center"
-                      CompressedLayout.IsHeadless="True" Padding="10">
+                      CompressedLayout.IsHeadless="True" Padding="10"
+                      effect:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DashboardViewModel}}, Path=GoToTransactionCommand}" 
+                      effect:TouchEffect.CommandParameter="{Binding .}" effect:TouchEffect.NativeAnimation="True"
+                >
                     
-                    <toolkit:AvatarView Size="50" Color="Red" 
+                    <xct:AvatarView Size="50" Color="Red" 
                                     TextColor="White"
                                     Text="N" />
 
@@ -50,13 +53,6 @@
                            HorizontalTextAlignment="Center"
                            />
 
-                    <FlexLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DashboardViewModel}}, Path=GoToTransactionCommand}"
-                            CommandParameter="{Binding .}"
-                             />
-                    </FlexLayout.GestureRecognizers>
-                    
                 </FlexLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>
